@@ -1,4 +1,5 @@
 package org.example;
+//habits
 
 public class Habit {
     String name;
