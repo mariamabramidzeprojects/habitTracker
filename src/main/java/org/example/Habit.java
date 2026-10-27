@@ -1,26 +1,33 @@
+
 package org.example;
-//habits
 
 public class Habit {
     private String name;
     private boolean completed;
 
-    Habit(String name){
-        this.name = name;
+    public Habit(String name) {
+        // FIX: Constructor also validates the name.
+        setName(name);
     }
-    public String getName(){
-        return this.name;
+
+    public String getName() {
+        return name;
     }
 
     public boolean isCompleted() {
         return completed;
     }
 
-    public void setName(String newName){
-        this.name = newName;
+    public void setName(String newName) {
+        // FIX: Prevent null or blank habit names
+        if (newName == null || newName.isBlank()) {
+            throw new IllegalArgumentException("Habit name cannot be empty");
+        }
+
+        this.name = newName.trim();
     }
 
-    public void markCompleted(){
+    public void markCompleted() {
         completed = true;
     }
 }
